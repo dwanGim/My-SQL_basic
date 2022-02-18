@@ -317,6 +317,8 @@ SELECT avg(height) FROM userTbl;
 -- 우선 사용자별 총 금액을(buyTbl)다시 구해보겠습니다.
 -- sum(price * amount)를 활용해서 작성해주세요.
 SELECT user_id, sum(price * amount) as '총구매액' FROM buyTbl GROUP BY user_id;
+SELECT user_id, sum(price * amount) as '총구매액' FROM buyTbl GROUP BY user_id;
+
 
 -- 구매액이 250000을 넘는 사람만 남겨보겠습니다.
 -- WHERE처럼 사용하시되 HAVING이라고 적어서 조건식을 붙여보세요.

@@ -28,7 +28,7 @@ userTbl.user_name, userTbl.addr, userTbl. phone_number
  FROM buyTbl INNER JOIN userTbl
 ON buyTbl.user_id = userTbl.user_id;
 
--- 위의 경우처럼 특정 테이브르이 전체 데이터를 출력하는 경우는
+-- 위의 경우처럼 특정 테이블이 전체 데이터를 출력하는 경우는
 -- 테이블명.*로 대체할 수 있습니다.
 SELECT buyTbl.*,
 	userTbl.user_name, userTbl.addr, userTbl.phone_number
@@ -136,3 +136,49 @@ SELECT * FROM student s RIGHT JOIN membership m
 	ON s.user_name = m.user_name;
 ;
 
+CREATE TABLE player(
+		user_name varchar (3) primary key,
+        user_goal int not null
+		);
+CREATE TABLE pk (
+		user_name varchar (3) primary key,
+        user_pk INT NOT NULL
+        );
+INSERT INTO player VALUES ('메시', '10');
+INSERT INTO player VALUES ('호날두', '20');
+INSERT INTO player VALUES ('레반돞', '30');
+
+DROP TABLE pk;
+
+SELECT * FROM player;
+
+INSERT INTO pk VALUES ('메시', '5');
+INSERT INTO pk VALUES ('호날두', '10');
+INSERT INTO pk VALUES ('라모스', '15');
+SELECT * FROM pk;
+
+SELECT * FROM player p INNER JOIN pk k
+	ON p.user_name = k.user_name;
+
+SELECT * FROM player p INNER JOIN pk k
+	ON p.user_name = k.user_name;
+
+
+
+SELECT * FROM player p LEFT JOIN pk k
+	ON p.user_name = k.user_name;
+
+
+SELECT * FROM player p RIGHT JOIN pk k
+	on p.user_name = k.user_name;
+    
+
+SELECT * FROM student s RIGHT JOIN membership m
+	ON s.user_name = m.user_name
+    UNION SELECT * FROM student s LEFT JOIN membership m
+	ON s.user_name = m.user_name;
+    
+    SELECT * FROM player p RIGHT JOIN pk k
+	on p.user_name = k.user_name
+    WHERE k.user_pk <= 10 
+	ORDER BY k.user_pk DESC;

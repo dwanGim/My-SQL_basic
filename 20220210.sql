@@ -112,7 +112,7 @@ CREATE TABLE userTbl (
         user_name varchar (10) NOT NULL,
         birth_year int (4) NOT NULL,
         addr varchar (4) NOT NULL,
-        phone_nomber varchar (11) ,
+        phone_number varchar (11) ,
         height int (3) ,
         reg_date DATE
         );
